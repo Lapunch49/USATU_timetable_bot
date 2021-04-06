@@ -1,5 +1,6 @@
 import config
 import telebot
+# There was Alsu
 
 bot = telebot.TeleBot(config.TOKEN)
 
