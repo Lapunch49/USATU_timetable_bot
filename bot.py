@@ -8,7 +8,7 @@ course=''
 group=''
 
 
-@bot.message_handler(commands=['start'])
+@bot.message_handler(commands=['start']) #ndnncndsncjscfdn
 def start_handler(message):
     bot.send_message(message.from_user.id, '''Привет, пользователь USATU_timetable_bot!
 Чтобы бот смог вам помочь, ответьте на следующие вопросы:''')
