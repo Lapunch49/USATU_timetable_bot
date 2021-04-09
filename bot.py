@@ -1,5 +1,7 @@
 import config
-import telebot
+import telebot 
+import time
+import datetime
 
 bot = telebot.TeleBot(config.TOKEN)
 
@@ -37,11 +39,16 @@ def help_handler(message):
     bot.send_message(message.from_user.id, "Какие команды я умею выполнять:")
 
 
-@bot.message_handler(content_types=['text'])
-def handle_message(message):
-    try: 
-        bot.send_message(message.chat.id,message.text)
-    except: 
-        pass
+    
+
+planedtime = datetime(2021, 4, 9, 17, 10 , 0, 0)
+now = datetime.datetime.now()
+if (planedtime==(datetime.datetime.now())):
+      @bot.message_handler(content_types=['text'])
+           def handle_message(message):
+              try: 
+                  bot.send_message(message.chat.id,message.text)
+              except: 
+                  pass
 
 bot.polling()
