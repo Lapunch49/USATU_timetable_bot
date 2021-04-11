@@ -32,7 +32,7 @@
 # print(type(i))
 
 
-import parser
+from parser import num_of_this_week
 
-print(parser.num_of_this_week)
+print(num_of_this_week)
 

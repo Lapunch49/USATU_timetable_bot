@@ -1,3 +1,4 @@
+import time
 from selenium import webdriver
 #from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select
@@ -26,6 +27,8 @@ name_of_faculty.select_by_visible_text('ФИРТ')
 num_of_course = Select(driver.find_element_by_id('id_klass'))
 num_of_course.select_by_value('1')
 
+time.sleep(2)
+
 name_of_group = Select(driver.find_element_by_id('id_group'))
 name_of_group.select_by_visible_text('ПРО-127Б')
 
@@ -36,21 +39,18 @@ driver.find_element_by_css_selector('.centered-horizontal > div:nth-child(1) > i
 
 #######
 
-num_of_this_week = driver.find_elements_by_css_selector('div.row:nth-child(3) > p:nth-child(4) > font:nth-child(1)')[0].text
-
-# print(num_of_this_week)
-
+num_of_this_week = driver.find_elements_by_css_selector('div.row:nth-child(3) > p:nth-child(4) > font:nth-child(1)')[0].text\
 
 
 for num_of_day_of_week in range(2,8):
-    #print('\n\n\n',days_of_week[num_of_day_of_week-1])
+    print('\n\n\n',days_of_week[num_of_day_of_week-1])
     for num_of_lesson in range(1,5):
         i += 1
         a[i][0]=driver.find_elements_by_css_selector(f'#schedule > tbody:nth-child(2) > tr:nth-child({num_of_lesson}) > td:nth-child({num_of_day_of_week})')[0].text
         if a[i][0] != '':
-            #print(num_of_lesson, 'пара')
+            print(num_of_lesson, 'пара')
             a[i][1] = a[i][0].split('\n')
-            #print(a[i][1])
+            print(a[i][1])
 
 i=0
 
@@ -72,3 +72,5 @@ i=0
 
 # print(a3)
 #driver.close()
+
+
