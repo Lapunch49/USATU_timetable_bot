@@ -84,7 +84,53 @@
 #     schedule.run_pending()
 #     time.sleep(1)
 
-faculty = 'ФИРТ'
-if not (faculty == 'ФИРТ' or faculty == 'АВИЭТ' or faculty == 'ИАТМ' or faculty == 'ИНЭК' or faculty == 'ОНФ' or faculty == 'УАТ' or faculty == 'ФАДЭТ' or faculty == 'ФЗЧС' or faculty == 'Аспирантура'):
-    print('Нет')
+# faculty = 'ФИРТ'
+# if not (faculty == 'ФИРТ' or faculty == 'АВИЭТ' or faculty == 'ИАТМ' or faculty == 'ИНЭК' or faculty == 'ОНФ' or faculty == 'УАТ' or faculty == 'ФАДЭТ' or faculty == 'ФЗЧС' or faculty == 'Аспирантура'):
+#     print('Нет')
+
+#b = driver.find_elements_by_css_selector(f'#schedule > tbody:nth-child(2) > tr:nth-child(1) > td:nth-child(2)')[0].text
+# a[5][0]=driver.find_elements_by_css_selector('#schedule > tbody:nth-child(2) > tr:nth-child(5) > td:nth-child(3)')[0].text
+# print(a[1][0])
+
+# if a[1][0] != '':
+#     a[1][1] = a[1][0].split('\n')
+#     print(a[1][1])
+#     # for i in a[1][1]:
+#     #     print(i)
+#     print(a[1][1][2])
+
+# a3=driver.find_elements_by_css_selector('#schedule > tbody:nth-child(2) > tr:nth-child(3) > td:nth-child(2)')[0].text
+
+# if a3 != 0:
+#     print('да')
+
+
+
+#cursor.execute("""INSERT INTO usersbase(user_id, faculty) VALUES('Kate','ФИРТ');""")
+
+#cursor.execute("""ALTER TABLE usersbase ADD COLUMN consent BIT""")
+
+# cursor.execute("""INSERT INTO users(users, passwords)
+#     VALUES('Kate','1234');""")
+
+#cursor.execute("""INSERT INTO users(users)
+ #    VALUES('Katerrr');""")
+
+#cursor.execute("UPDATE users SET users=? WHERE users=? WHERE passwords=?;", ("Kate2","Kate","null"))
+
+#cursor.execute("DELETE FROM users WHERE users=?;", ("Katerrr",))
+
+# cursor.execute("SELECT * FROM users WHERE passwords='1234';") #  * - все
+
+# result = cursor.fetchmany(8)
+# print(result)
+
+#conn.commit() #завершение соединения с бд
  
+#b = input()
+# while b!='dfg':
+#     try:
+#         print('Попробуйте еще раз')
+#         b=input() 
+#     except: 
+#         pass

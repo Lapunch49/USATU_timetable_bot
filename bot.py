@@ -13,9 +13,32 @@ def users_bd_function(id):
     conn = sqlite3.connect("users_base.db ")
     cursor = conn.cursor()
 
-    #Создание таблицы albums
-    cursor.execute("""INSERT INTO usersbase(user_id) VALUES(?);""",(id,))
+    cursor.execute(f"SELECT * FROM usersbase WHERE user_id = {id} ;")
+    being_res = cursor.fetchmany(1)
+    if being_res[0][0]=='':
+        cursor.execute("""INSERT INTO usersbase(user_id) VALUES(?);""",(id,))
 
+    conn.commit()
+
+def users_bd_f_faculty(id,faculty):
+    conn = sqlite3.connect("users_base.db ")
+    cursor = conn.cursor()
+
+    cursor.execute("UPDATE usersbase SET faculty=? WHERE user_id=?;", (faculty,id))
+    conn.commit()
+
+def users_bd_f_course(id,course):
+    conn = sqlite3.connect("users_base.db ")
+    cursor = conn.cursor()
+
+    cursor.execute("UPDATE usersbase SET course=? WHERE user_id=?;", (course,id))
+    conn.commit()
+
+def users_bd_f_group(id,group):
+    conn = sqlite3.connect("users_base.db ")
+    cursor = conn.cursor()
+
+    cursor.execute("UPDATE usersbase SET st_group=? WHERE user_id=?;", (group,id))
     conn.commit()
 
 def parser_function():
@@ -80,11 +103,14 @@ def start_handler(message):
 def get_faculty(message):
     global faculty
     faculty=message.text
-    # while not (faculty == 'ФИРТ' or faculty == 'АВИЭТ' or faculty == 'ИАТМ' or faculty == 'ИНЭК' or faculty == 'ОНФ' or faculty == 'УАТ' or faculty == 'ФАДЭТ' or faculty == 'ФЗЧС' or faculty == 'Аспирантура'):
+    while not (faculty == 'ФИРТ' or faculty == 'АВИЭТ' or faculty == 'ИАТМ' or faculty == 'ИНЭК' or faculty == 'ОНФ' or faculty == 'УАТ' or faculty == 'ФАДЭТ' or faculty == 'ФЗЧС' or faculty == 'Аспирантура'):
+        bot.send_message(message.from_user.id, 'Что-то пошло не так, попробуйте ввести заново')
+        get_faculty(message)
     #     try:
     #         faculty=message.text
     #     except:
     #         bot.send_message(message.from_user.id, 'Что-то пошло не так, попробуйте ввести заново')
+    users_bd_f_faculty(message.chat.id, faculty)
     bot.send_message (message.chat.id,"На каком курсе вы учитесь? (введите число)")
     bot.register_next_step_handler(message, get_course)
 
@@ -103,13 +129,14 @@ def get_course(message):
     #     1
     # else:
     #     bot.send_message(message.from_user.id, 'Цифрами, пожалуйста')
-        
+    users_bd_f_course(message.chat.id,course)    
     bot.send_message (message.chat.id,"В какой группе вы учитесь? (например ПРО-127Б)")
     bot.register_next_step_handler(message, get_group)
 
 def get_group(message):
     global group
     group=message.text
+    users_bd_f_group(message.chat.id,group)
     bot.send_message (message.chat.id,"Я сохранил эту информацию, сейчас найду ваше расписание.")
     # можно ли далее   help_handler(message)
 

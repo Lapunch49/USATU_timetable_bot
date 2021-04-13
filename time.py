@@ -10,6 +10,7 @@ bot = telebot.TeleBot('1668653860:AAH61P0HXn9K5yNmYXuiqLeDcOuMdZJQXZE')
 #     bot.send_message(a,"Привет :)")
 
 # schedule.every().day.at("01:46").do(send_message,"1093555008")
+
 t="14:40"
 @bot.message_handler()
 def send_message(a):
