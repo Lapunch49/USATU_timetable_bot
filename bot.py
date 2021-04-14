@@ -12,12 +12,13 @@ import sqlite3
 def users_bd_function(id):
     conn = sqlite3.connect("users_base.db ")
     cursor = conn.cursor()
-
     cursor.execute(f"SELECT * FROM usersbase WHERE user_id = {id} ;")
     being_res = cursor.fetchmany(1)
-    if being_res[0][0]=='':
+    try:
+        if being_res[0][0] != id:
+            cursor.execute("""INSERT INTO usersbase(user_id) VALUES(?);""",(id,))
+    except:
         cursor.execute("""INSERT INTO usersbase(user_id) VALUES(?);""",(id,))
-
     conn.commit()
 
 def users_bd_f_faculty(id,faculty):
