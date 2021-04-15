@@ -13,7 +13,35 @@
 
 # from datetime import datetime as dt
 # now = dt.now()
-# print(f"Текущее время {now:%d.%m.%Y %H:%M}")
+# print(f"Текущее время {now: %H:%M}")
+# print(now.today().weekday()+1)
+# print(dt.now().weekday()+1)
+
+# import schedule
+# import time
+# from datetime import datetime as dt
+
+# time_of_classes=['','05:25','09:35','12:00','13:45','16:00','17:45','19:30']
+
+# num_day_of_week = dt.now().weekday()+1
+# j=1
+# now = dt.now()
+# print(now: '{%H:%M}')
+# t='{now: %H:%M}'
+# print(t)
+# if t in time_of_classes:
+#     print('gj')
+# else:
+#     print('fgh')
+#     #print('{now: %H:%M}')
+import time
+import schedule
+from datetime import datetime as dt
+print( today.strftime("%Y-%m-%d-%H.%M.%S") )
+
+
+
+
 
 # s=7
 # s += 1
@@ -134,3 +162,29 @@
 #         b=input() 
 #     except: 
 #         pass
+
+
+# week = ['','mon','tue','wed','thu','fri','sat']
+    
+# b = [''] * 44
+# for j in range(44): 
+#         b[j] = [''] * 2
+
+# for j in range(1,43):
+#     b[j][0]= str(j % 7)
+#     if b[j][0]=='0':
+#         b[j][0]='7'
+#     b[j][1] = week[(j-1) // 7+1] + str(b[j][0])
+# print (b,'\n\n')
+# print (b[13])
+
+# print(int('5')+1)
+
+# import sqlite3
+
+# conn = sqlite3.connect("users_base.db")
+# cursor = conn.cursor()
+# cursor.execute("SELECT * FROM usersbase;")
+# id_chat_array = cursor.fetchmany()
+# conn.commit()
+# print(id_chat_array[0][0])
