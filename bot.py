@@ -173,7 +173,7 @@ week = ['','mon','tue','wed','thu','fri','sat']
 num_of_this_week = '33'
 days_of_week = ['','✔️ПН','✔️ВТ','✔️СР','✔️ЧТ','✔️ПТ','✔️СБ']
 
-@bot.message_handler(commands=['start'])
+@bot.message_handler(commands=['start']) #ndnncndsncjscfdn
 def start_handler(message):
     users_bd_function(message.chat.id)
     bot.send_message(message.from_user.id, '''Привет, пользователь USATU_timetable_bot!
